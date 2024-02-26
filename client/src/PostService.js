@@ -4,6 +4,7 @@ import axios from 'axios';
 const url = 'api/posts/';
 
 class PostService {
+    
     // Get Post
     static getPost() {
         return axios.get(url)
@@ -15,7 +16,7 @@ class PostService {
                 }));
             })
             .catch(error => {
-                throw error; // Rethrow the error to maintain the promise rejection
+                throw error;
             });
     }
 

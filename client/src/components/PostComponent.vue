@@ -1,17 +1,23 @@
 <template>
   <div class="container">
     <h1>Latest Posts</h1>
+
+    <!-- create a post -->
     <div class="create-post">
       <label for="create-post">Say Something...</label>
       <input type="text" id="create-post" v-model="text" placeholder="Create a post">
       <button v-on:click="createPost">Post!</button>
     </div>
+    
     <hr>
+    
+    <!-- error message -->
     <p class="error" v-if="error">{{ error }}</p>
     
     <!-- Posts -->
     <!-- v-on:dblclick double click to delete  -->
     <div class="posts-container">
+
       <div class="post"
         v-for="(post, index) in posts"
         v-bind:item="post"
@@ -22,12 +28,15 @@
 
         <!-- date formating -->
         {{ `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}` }}
+
+        <!-- display posts -->
         <p class="text">{{ post.text }}</p>
+
       </div>
 
     </div>
   </div>
-      <!-- <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li> -->
+<!-- <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li> -->
 </template>
 
 <script>
