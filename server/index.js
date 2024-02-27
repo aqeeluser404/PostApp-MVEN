@@ -12,11 +12,12 @@ const posts = require('./routes/api/posts');
 app.use('/api/posts', posts);
 
 // Handle production
-if(process.env.NODE_ENV == 'production') {
+if(process.env.NODE_ENV === 'production') {
     // static-build folder
-    app.use(express.static(__dirname + '/public/'))
+    app.use(express.static(__dirname + '/public/'));
 
     // Handle Single-Page Application
+    // send the backend routes to the public folder specified by the frontend
     app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
 }
 
